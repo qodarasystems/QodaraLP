@@ -1,4 +1,15 @@
 /* Navbar */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary);
+    cursor: pointer;
+    margin-left: 1rem;
+    z-index: 110;
+}
+
 .navbar {
     padding: 1rem 0;
     position: sticky;
@@ -49,6 +60,16 @@
 .btn-primary:hover {
     background-color: var(--primary);
     color: white;
+}
+
+.btn-menu {
+    display: none;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-desktop {
+    display: inline-block;
 }
 
 /* Hero Section */
@@ -455,6 +476,84 @@
     /* .contact-form {
         flex: 1;
     } */
+}
+
+@media (max-width: 991px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 220px;
+        background: var(--background);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 4rem 2rem 2rem 2rem;
+        gap: 2rem;
+        box-shadow: -2px 0 16px rgba(0, 0, 0, 0.07);
+        transform: translateX(100%);
+        transition: transform 0.3s;
+        display: flex;
+        z-index: 105;
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        margin: 0 0 1rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar .container {
+        position: relative;
+    }
+
+    .btn-menu {
+        display: block;
+    }
+
+    .btn-desktop {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+@media (min-width: 992px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        gap: 0;
+        box-shadow: none;
+        transform: none;
+        background: none;
+    }
+
+    .nav-link {
+        margin: 0 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (min-width: 1024px) {
