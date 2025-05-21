@@ -1,4 +1,7 @@
+import React, { useState } from "react";
 import {
+  FaBars,
+  FaTimes,
   FaInstagram,
   FaWhatsapp,
   FaGithub,
@@ -16,6 +19,13 @@ import {
 import "./styles/App.css"
 
 function App() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="app">
       {/* Navbar */}
@@ -24,29 +34,51 @@ function App() {
           <div className="logo">
             <img src="/Qodara_Logo.png" alt="Logo Qodara" className="logo-image" width={'100px'} />
           </div>
-          <nav className="nav-links">
-            <a href="#" className="nav-link">
+          <nav className={`nav-links${menuOpen ? " open" : ""}`}>
+            <a href="#" className="nav-link" onClick={handleNavLinkClick}>
               Início
             </a>
-            <a href="#services" className="nav-link">
+            <a href="#services" className="nav-link" onClick={handleNavLinkClick}>
               Serviços
             </a>
-            <a href="#about" className="nav-link">
+            <a href="#about" className="nav-link" onClick={handleNavLinkClick}>
               Sobre
             </a>
-            <a href="#contact" className="nav-link">
+            <a href="#contact" className="nav-link" onClick={handleNavLinkClick}>
               Contato
             </a>
+            {/* Botão aparece dentro do menu hamburguer em telas pequenas */}
+            <button
+              className="btn btn-primary btn-menu"
+              onClick={() => {
+                setMenuOpen(false);
+                window.open(
+                  "https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+solicitar+um+orçamento+com+a+Qodara.",
+                  "_blank"
+                );
+              }}
+            >
+              Solicitar Orçamento
+            </button>
           </nav>
+          {/* Botão fora do menu hamburguer (desktop) */}
           <button
-            className="btn btn-primary"
+            className="btn btn-primary btn-desktop"
             onClick={() =>
               window.open(
                 "https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+solicitar+um+orçamento+com+a+Qodara.",
                 "_blank"
               )
-            }>
+            }
+          >
             Solicitar Orçamento
+          </button>
+          <button
+            className="menu-toggle"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </header>
