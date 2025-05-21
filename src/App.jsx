@@ -1,7 +1,6 @@
 import {
-  FaFacebook,
-  FaTwitter,
   FaInstagram,
+  FaWhatsapp,
   FaGithub,
   FaCode,
   FaDatabase,
@@ -23,9 +22,7 @@ function App() {
       <header className="navbar">
         <div className="container">
           <div className="logo">
-            <h1>
-              <span className="highlight">Q</span>odara
-            </h1>
+            <img src="/Qodara_Logo.png" alt="Logo Qodara" className="logo-image" width={'100px'} />
           </div>
           <nav className="nav-links">
             <a href="#" className="nav-link">
@@ -41,7 +38,16 @@ function App() {
               Contato
             </a>
           </nav>
-          <button className="btn btn-primary">Solicitar Orçamento</button>
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              window.open(
+                "https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+solicitar+um+orçamento+com+a+Qodara.",
+                "_blank"
+              )
+            }>
+            Solicitar Orçamento
+          </button>
         </div>
       </header>
 
@@ -55,7 +61,16 @@ function App() {
               <p className="hero-description">
                 Criamos softwares sob medida, ambientes otimizados para o cliente, entregando continuidade de negócios para sua equipe.
               </p>
-              <button className="btn btn-primary">Solicitar Orçamento</button>
+              <button
+                className="btn btn-primary"
+                onClick={() =>
+                  window.open(
+                    "https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+solicitar+um+orçamento+com+a+Qodara.",
+                    "_blank"
+                  )
+                }>
+                Solicitar Orçamento
+              </button>
             </div>
             <div className="hero-image">
               <div className="image-wrapper">
@@ -148,7 +163,14 @@ function App() {
           </div>
 
           <div className="section-footer">
-            <button className="btn btn-primary">
+            <button
+              className="btn btn-primary"
+              onClick={() =>
+                window.open(
+                  "https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+solicitar+um+orçamento+com+a+Qodara.",
+                  "_blank"
+                )
+              }>
               Saiba Mais <FaChevronRight className="icon-right" />
             </button>
           </div>
@@ -161,7 +183,7 @@ function App() {
           <div className="section-header">
             <h2 className="section-title">Por que a Qodara?</h2>
             <p className="section-description">
-              Não somos apenas mais uma empresa de software. Somos parceiros que entendem seu negócio e criam soluções que fazem a diferença.
+              Não somos apenas mais uma empresa de software. Somos parceiros que entendem o seu negócio e criam soluções que realmente fazem a diferença. Na Qodara, desenvolvemos softwares personalizados, pensados sob medida para atender às necessidades específicas, garantindo eficiência e resultados que impulsionam o seu crescimento.
             </p>
           </div>
 
@@ -200,10 +222,42 @@ function App() {
             </div>
           </div>
 
-          <div className="section-footer">
-            <button className="btn btn-primary">
-              Saiba Mais <FaChevronRight className="icon-right" />
-            </button>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="contact">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Contato</h2>
+            <p className="section-description">
+              Entre em contato conosco para tirar dúvidas, solicitar um orçamento ou conversar sobre seu projeto. Retornaremos rapidamente!
+            </p>
+          </div>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <p><strong>Email:</strong> qodarasys@gmail.com</p>
+              <p><strong>WhatsApp:</strong> <a href="https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+saber+mais+sobre+os+serviços+da+Qodara." target="_blank" rel="noopener noreferrer">+55 11 94386-5242</a></p>
+              <div className="social-links-contact">
+                <a href="https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+saber+mais+sobre+os+serviços+da+Qodara." className="social-link" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp />
+                </a>
+                <a href="https://www.instagram.com/qodarasystems/" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram />
+                </a>
+                <a href="https://github.com/qodarasystems" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <FaGithub />
+                </a>
+              </div>
+            </div>
+            {/* TODO: Futuramente implementar o formulário de contato */}
+
+            {/* <form className="contact-form" action="mailto:contato@qodara.com.br" method="POST" encType="text/plain">
+              <input type="text" name="name" placeholder="Seu nome" required />
+              <input type="email" name="email" placeholder="Seu e-mail" required />
+              <textarea name="message" placeholder="Sua mensagem" rows={5} required />
+              <button type="submit" className="btn btn-primary">Enviar Mensagem</button>
+            </form> */}
           </div>
         </div>
       </section>
@@ -214,26 +268,23 @@ function App() {
           <div className="footer-content">
             <div className="footer-logo">
               <h2>
-                <span className="highlight">Q</span>odara
+                <img src="/Qodara_Logo.png" alt="Logo Qodara" className="logo-image" width={'100px'} />
               </h2>
             </div>
             <div className="social-links">
-              <a href="#" className="social-link">
-                <FaFacebook />
+              <a href="https://api.whatsapp.com/send/?phone=5511943865242&text=Olá+tenho+interesse+em+saber+mais+sobre+os+serviços+da+Qodara.&type=phone_number&app_absent=0&fbclid=PAZXh0bgNhZW0CMTEAAacmFoZ5y8iWNMSur6rb36IJMDjb4Jb3A6CGgONRbNpXyMom-ZJIdyj1H7Qvrg_aem_hP9NdbLivPevfTus1c7jKA" className="social-link">
+                <FaWhatsapp />
               </a>
-              <a href="#" className="social-link">
-                <FaTwitter />
-              </a>
-              <a href="#" className="social-link">
+              <a href="https://www.instagram.com/qodarasystems/" className="social-link">
                 <FaInstagram />
               </a>
-              <a href="#" className="social-link">
+              <a href="https://github.com/qodarasystems" className="social-link">
                 <FaGithub />
               </a>
             </div>
           </div>
           <div className="copyright">
-            <p>© 2023 Qodara. Todos os direitos reservados.</p>
+            <p>© 2025 Qodara. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
